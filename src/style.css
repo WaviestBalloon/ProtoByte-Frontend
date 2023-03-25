@@ -1,0 +1,78 @@
+body {
+	font-family: sans-serif;
+	color: white;
+	font-size: 16px;
+	line-height: 1.5;
+	background-color: #1f1f1f;
+	margin: auto;
+}
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	box-shadow: inset 0 0 450px #0005;
+	z-index: 0;
+}
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 800px;
+	width: 100%;
+	padding: 0 20px;
+}
+
+.pbtext {
+	background: linear-gradient(75deg, #7c85e0, #c738cd);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.counter-container {
+	display: flex;
+	justify-content: space-between;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.counter {
+	text-align: center;
+}
+.counter h2 {
+	font-size: 24px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.counter p {
+	font-size: 48px;
+	font-weight: bold;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.spinner {
+	animation: gamspinner 0.65s ease-in-out infinite;
+}
+@keyframes gamspinner {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(90deg); }
+}
+
+.livecircle {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-bottom: 1.05px;
+	border-radius: 50%;
+	background-color: rgb(255, 89, 89);
+	box-shadow: 0 0 35px 2.5px rgb(255, 89, 89);
+	animation: blink 1.5s infinite;
+}
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
