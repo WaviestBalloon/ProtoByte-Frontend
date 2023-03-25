@@ -1,4 +1,4 @@
-const ws = new WebSocket("ws://150.136.54.88:80");
+const ws = new WebSocket("wss://protobyte-backend.wav.blue:443");
 
 function animateCounter(newValue, duration, counterElement) {
 	const startTimestamp = performance.now();
