@@ -66,10 +66,19 @@ body {
 	width: 12px;
 	height: 12px;
 	margin-bottom: 1.05px;
+	margin-right: 6px;
 	border-radius: 50%;
 	background-color: rgb(255, 89, 89);
 	box-shadow: 0 0 35px 2.5px rgb(255, 89, 89);
 	animation: blink 1.5s infinite;
+}
+.circle {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-bottom: 1.05px;
+	margin-right: 6px;
+	border-radius: 50%;
 }
 @keyframes blink {
 	50% {
