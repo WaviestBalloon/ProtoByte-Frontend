@@ -32,9 +32,10 @@ window.addEventListener("load", () => {
 		document.getElementById("live-status").innerHTML = `<div class="livecircle"></div> <i style="color: rgb(255, 89, 89);">Live</i>`;
 
 		ws.onclose = () => {
-			console.log("Connection to server closed due to a error");
-			document.getElementById("live-status").innerHTML = `<div class="circle"></div> <i style="background-color: rgb(255, 89, 89); box-shadow: 0 0 35px 2.5px rgb(255, 89, 89);">Connection error</i>`;
+			console.log("Connection to server closed");
+			document.getElementById("live-status").innerHTML = `<div class="circle" style="background-color: rgb(255, 89, 89); box-shadow: 0 0 35px 2.5px rgb(255, 89, 89);"></div> <i style="color: rgb(255, 89, 89);">Connection to backend server lost</i>`;
 		}
+
 		ws.onmessage = (event) => {
 			console.log(`Received JSON: ${event.data}`);
 			const data = JSON.parse(event.data);
@@ -45,7 +46,7 @@ window.addEventListener("load", () => {
 		};
 	}
 	ws.onerror = () => {
-		console.log("Connection to server closed");
-		document.getElementById("live-status").innerHTML = `<div class="circle" style="background-color: rgb(255, 89, 89); box-shadow: 0 0 35px 2.5px rgb(255, 89, 89);"></div> <i style="color: rgb(255, 89, 89);">Connection to server lost</i>`;
+		console.log("Connection to server closed due to a error");
+		document.getElementById("live-status").innerHTML = `<div class="circle" style="background-color: rgb(255, 89, 89); box-shadow: 0 0 35px 2.5px rgb(255, 89, 89);"></div> <i style="color: rgb(255, 89, 89);">Failed to establish connection with backend server</i>`;
 	}
 });
