@@ -17,6 +17,8 @@ function animateCounter(newValue, duration, counterElement) {
 
 	requestAnimationFrame(updateCounter);
 }
+let firstTime = false;
+
 window.addEventListener("load", () => {
 	document.getElementById("live-status").innerHTML = `<div class="circle" style="background-color: rgb(107, 154, 255); box-shadow: 0 0 35px 2.5px rgb(107, 154, 255);"></div> <i style="color: rgba(107, 154, 255);">Connecting to backend server</i>`;
 	
@@ -39,6 +41,7 @@ window.addEventListener("load", () => {
 		ws.onmessage = (event) => {
 			console.log(`Received JSON: ${event.data}`);
 			const data = JSON.parse(event.data);
+			
 			animateCounter(data.commandCount, 1000, document.getElementById("command-count"));
 			animateCounter(data.messageCount, 1000, document.getElementById("message-count"));
 			animateCounter(data.guildCount, 1000, document.getElementById("guild-count"));
