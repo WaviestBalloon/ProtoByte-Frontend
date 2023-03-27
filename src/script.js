@@ -22,7 +22,7 @@ let firstTime = false;
 window.addEventListener("load", () => {
 	document.getElementById("live-status").innerHTML = `<div class="circle" style="background-color: rgb(107, 154, 255); box-shadow: 0 0 35px 2.5px rgb(107, 154, 255);"></div> <i style="color: rgba(107, 154, 255);">Connecting to backend server</i>`;
 	
-	const ws = new WebSocket("wss://protobyte-backend.wav.blue:443");
+	const ws = new WebSocket("wss://protobyte-backend.wav.blue:443/api/stats/ws");
 	
 	ws.onopen = () => {
 		console.log("Connected to server successfully");
