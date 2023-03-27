@@ -98,6 +98,9 @@ body {
 }
 
 .btn {
+	display: flex;
+	align-items: center;
+	
 	background-color: #7c85e0;
 	color: white;
 	border: none;
@@ -110,6 +113,10 @@ body {
 .btn:hover {
 	background-color: #c646ca;
 }
+.btn-icon {
+	margin-right: 10px;
+}
+
 .shiny {
 	position: relative;
 	border: none;
@@ -131,14 +138,17 @@ body {
 @keyframes shiny-swipe {
 	0% {
 		opacity: 0;
+		width: 10%;
 		transform: translateX(-325%) skewX(-35deg);
 	}
 	50% {
 		opacity: 1;
+		width: 20%;
 		transform: translateX(500%) skewX(-35deg);
 	}
 	100% {
 		opacity: 0;
+		width: 10%;
 		transform: translateX(1325%) skewX(-35deg);
 	}
 }
