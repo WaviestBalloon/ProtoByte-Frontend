@@ -1,5 +1,5 @@
 const queries = new URLSearchParams(window.location.search);
-const baseUrl = "http://localhost:8686"
+const baseUrl = "https://protobyte-backend.wav.blue"; // "http://localhost:8686"
 let requestHeaders = new Headers();
 let leToken = null;
 
