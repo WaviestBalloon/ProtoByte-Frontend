@@ -2,17 +2,38 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="../style.css">
-		<script src="../script.js"></script>
+		<script src="../panel.js"></script>
 		<meta charset="UTF-8">
 		<title>ProtoByte</title>
 	</head>
 	<body>
-		<span class="overlay"></span>
 		<span class="container">
-			<span class="banner-notice">
-				<img class="btn-icon" src="../public/token.svg" width="25px"> <b>Authentication in progress, waiting on Discord</b>
+			<span class="banner-notice" id="authbanner">
+				<img class="btn-icon" src="../public/token.svg" width="25px"> <span><b>Authentication in progress</b><br>If nothing happens, contact support :3</span>
 			</span>
-			<br><br>
+			<span class="banner-warning">
+				<img class="btn-icon" src="../public/token.svg" width="25px"> <span><b>ProtoByte Panel Alpha - Instability warning</b><br>Expect issues to occur while using the webpanel<br>Report bugs to <code>WaviestBalloon#1961</code> if it relates to the webpanel or backend API<br>Thank you!</span>
+			</span>
+
+			<br>
+			<center><img src="../public/protobyteNoMargin.png" alt="ProtoByte Logo" width="15.85%"></center>
+			
+			<h1 class="pbtext" id="selection-text">Pick a guild <span style="font-size: xx-small;"><i>Any guild!</i></span></h1>
+			<span class="status-bar"><p class="status-bar-text" id="guilds-status">Your servers are being retreaved, this may take a while</p></span>
+			<span id="global-container">
+				<span id="guilds">
+					<div id="guilds-container">
+						<br>
+						<img src="../public/spinner.svg" width="45vim" class="spinner">
+					</div>
+				</span>
+			</span>
+
+			<br><br><br>
+			<div class="guild-panel" onclick="configGuild(878613537826680872)">
+			<img src="https://cdn.discordapp.com/icons/878613537826680872/dd41a87300a9332354f68af8b6a82a9a.png" class="guild-icon"> <p><b style="font-size: large;">Test Guild Preview</b><br>420 members - <span style="filter: invert(48%) sepia(63%) saturate(2608%) hue-rotate(328deg) brightness(109%) contrast(100%);"><img width="15px" src="../public/warning.svg" style="color: rgb(255, 89, 89)"> Invalid permissions</span></p> <span class="guild-button"><button class="btn shiny">Configure</button>
+			</span></div>
+			<br>
 		</span>
 	</body>
 </html>

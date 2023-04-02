@@ -20,6 +20,8 @@ function animateCounter(newValue, duration, counterElement) {
 let firstTime = false;
 
 window.addEventListener("load", async () => {
+	//if (/panel/i.test(window.location.href) || !document.getElementById("live-status")) return window.location.href = "/panel";
+
 	document.getElementById("live-status").innerHTML = `<div class="circle" style="background-color: rgb(107, 154, 255); box-shadow: 0 0 35px 2.5px rgb(107, 154, 255);"></div> <i style="color: rgba(107, 154, 255);">Connecting to backend server</i>`;
 	
 	await fetch("https://protobyte-backend.wav.blue/api/status").then((res) => {
