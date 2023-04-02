@@ -60,7 +60,7 @@ window.addEventListener("load", async () => {
 		if (res.status === 200) {
 			console.log("Backend reachable");
 			res.json().then((data) => {
-				document.getElementById("apifooter").innerHTML = `API Status: <span style='color: green;'>Online</span> - Served ${data.served.toLocaleString("en-GB")} requests - Running on <b>wav.blue</b> infrastructure ${randomKaomoji()}`;
+				document.getElementById("apifooter").innerHTML = `Served ${data.served.toLocaleString("en-GB")} requests - Running on <b>wav.blue</b> infrastructure ${randomKaomoji()}`;
 			})
 		} else {
 			console.log("Backend having issues");
