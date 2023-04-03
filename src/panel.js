@@ -44,6 +44,11 @@ async function configGuild(id) {
 	});
 }
 
+function reauth() {
+	document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	location.reload();
+}
+
 window.addEventListener("load", async () => {
 	if (queries.get("token")) {
 		document.cookie = `token=${queries.get("token")}; path=/;`;
@@ -54,9 +59,25 @@ window.addEventListener("load", async () => {
 		}
 		leToken = document.cookie.split("token=")[1].split(";")[0];
 	}
-	document.getElementById("authbanner").style.display = "none";
+	await fetch(`${baseUrl}/api/identify`, {
+		headers: {
+			"Authorization": `Bearer ${leToken}`
+		},
+		method: "GET"
+	}).then((res) => {
+		if (res.status === 200) {
+			document.getElementById("authbanner").style.display = "none";
+			res.json().then((data) => {
+				console.log(data);
+			});
+		} else if (res.status === 401) { // (／。＼) ( ╥ω╥ )
+			document.getElementById("authbanner").classList.remove("banner-notice");
+			document.getElementById("authbanner").classList.add("banner-error");
+			document.getElementById("authbanner").innerHTML = `<img class="btn-icon" src="../public/security.svg" width="25px"> <span><b>Authentication error ( ╥ω╥ )</b><br>Your token seems invalid/expired! Features won't work as expected <button class="btn shiny red" onclick='reauth();'>Reauthenticate</button></span>`
+		}
+	});
 
-	await fetch("https://protobyte-backend.wav.blue/api/status").then((res) => {
+	fetch("https://protobyte-backend.wav.blue/api/status").then((res) => {
 		if (res.status === 200) {
 			console.log("Backend reachable");
 			res.json().then((data) => {
